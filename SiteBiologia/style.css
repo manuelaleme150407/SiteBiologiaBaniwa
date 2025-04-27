@@ -1,0 +1,629 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f3efe8; /* cor areia clara */
+  color: #333;
+}
+
+.epilogue {
+  font-family: "Epilogue", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+/* nav-bar geral */
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  /* background: #2f4f4f; */
+  color: white;
+  position: fixed; /* Agora é fixed */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.4s ease, opacity 0.4s ease; /* adicionei também transição na opacidade */
+  opacity: 1; /* visível por padrão */
+}
+
+/* Logo */
+.navegacao img {
+  height: 75px;
+}
+
+/* Botão Menu */
+.menu-hamburguer {
+  font-size: 1.3rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white; /* Linha mais fina */
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.menu-hamburguer:hover {
+  background-color: white;
+  color: #2f4f4f;
+}
+
+/* Menu Links (escondido inicialmente) */
+.menu-links {
+  display: none;
+  position: absolute;
+  top: 85px;
+  right: 20px;
+  background: #1a480d; /* cor + transparência */
+  backdrop-filter: blur(10px); /* efeito de blur */
+  flex-direction: column;
+  list-style: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+/* Quando o menu está ativo */
+.menu-links.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilo dos links */
+.menu-links li {
+  margin: 10px 0;
+  text-align: right;
+}
+
+.menu-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.menu-links li a:hover {
+  color: #0d200d;
+  transform: translateX(-5px);
+}
+
+
+
+
+/* video */
+.img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* principal */
+.principal {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('fundo1.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.principal h1 {
+  font-size: 4em;
+
+}
+
+.principal p {
+  font-size: 2em;
+ 
+}
+
+/* conheca baniwa */
+#conheca {
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.conteudoConheca {
+  display: flex;
+  align-items: center; /* centraliza verticalmente texto e imagem */
+  justify-content: center;
+  gap: 70px;
+  margin-top: 20px;
+}
+
+.textoConheca-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.tituloConheca {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: left; /* opcional */
+}
+
+.textoConheca {
+  font-size: 1.2em;
+  text-align: justify;
+}
+
+.imagemConheca {
+  width: 400px;
+  height: auto;
+}
+
+/* Linha do tempo */
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  height: 1650px;
+  margin-top: -80px;
+  
+}
+
+.timeline-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #1a480d;
+}
+
+.timeline-item {
+  background: #ffffff;
+  border-left: 4px solid #1a480d;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background-color: #f3efe8;
+}
+
+.timeline-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #1a480d;
+}
+
+.timeline-item ul {
+  list-style: disc inside;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.timeline-item ul li {
+  margin-bottom: 10px;
+}
+
+
+/*cultura*/
+#cultura{
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 140vh; /* ocupa toda a altura da tela */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* background: linear-gradient(to bottom, black 0%, #eeece0 30%); */
+  padding: 80px;
+  padding-top: 100px;
+  gap: 50px;
+}
+
+.culturaTexto {
+  display: flex;
+  flex-direction: row; /* deixa título e parágrafo lado a lado */
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  gap: 50px;
+}
+
+.tituloCultura{
+  color: #1a480d;
+  font-size: 100px;
+  text-transform: uppercase;
+}
+
+.conteudoCultura{
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 40px, 0, 40px, 0;
+}
+
+.imagemCultura{
+  align-self: center;
+  justify-self: center;
+  
+}
+
+/*TECNOLOGIA*/
+#tecnologia {
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.conteudoTec {
+  display: flex;
+  align-items: center; /* centraliza verticalmente texto e imagem */
+  justify-content: center;
+  gap: 70px;
+  margin-top: 20px;
+}
+
+.textoTec-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 17px;
+}
+
+.tituloTec {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: left; /* opcional */
+}
+
+.textoTec {
+  font-size: 18px;
+  text-align: justify;
+}
+
+.imagemTec {
+  width: 500px;
+  height: auto;
+}
+
+/* Medicina */
+#medicina {
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(to bottom, black 60%, #f3efe8 90%); */
+background-color: black;
+}
+
+.textoMed{
+  font-size: 18px;
+  text-align: justify;
+}
+
+.tituloMed{
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: left; /* opcional */
+  color: white;
+}
+
+.conteudoMed {
+  display: flex;
+  align-items: center; /* centraliza verticalmente texto e imagem */
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.textoMed-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;;
+}
+
+.imagemMed{
+  width: 600px;
+  height: 600px;
+  margin: 20px;
+}
+ 
+/* geral */
+#geral {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  justify-items: center;
+  align-items: center;
+  gap: 5px; 
+  background-color: black;
+}
+
+.imagem-container {
+  position: relative;
+  width: 100%; /* agora ocupa exatamente a célula do grid */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#geral img {
+  height: 100%;
+  max-height: 500px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.texto-sobre-imagem {
+  position: absolute;
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  color: white; 
+  font-size: 20px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* PRESERVAÇÃO */
+#preservacao {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('alimentacaoBaniwa.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  
+}
+
+.preservacaoTexto{
+  color: white;
+  margin-right: 50px;
+  font-size: 20px;
+}
+
+.tituloPreservacao{
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+.conteudoPreservacao{
+  font-size: 20px;
+  margin-right: 500px;
+}
+
+/*DESAFIOS*/
+#desafios {
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.conteudoDesafios {
+  display: flex;
+  align-items: center; /* centraliza verticalmente texto e imagem */
+  justify-content: center;
+  gap: 70px;
+  margin-top: 20px;
+  
+}
+
+.textoDesafios-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.tituloDesafios {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: left; /* opcional */
+}
+
+.textoDesafios {
+  font-size: 15px;
+  text-align: justify;
+}
+
+.imagemDesafios {
+  width: 500px;
+  height: auto;
+}
+
+/* DIREITOS */
+#direitos {
+  width: 100vw; /* ocupa toda a largura da tela */
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.textoDireitos{
+  font-size: 16px;
+  text-align: justify;
+}
+
+.tituloDireitos{
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: left; /* opcional */
+  color: white;
+}
+
+.conteudoDireitos {
+  display: flex;
+  align-items: center; /* centraliza verticalmente texto e imagem */
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.textoDireitos-container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 19px;
+  margin-right: 100px;
+}
+
+.imagemDireitos{
+  width: 600px;
+  height: 600px;
+  margin: 20px;
+}
+
+/* Seções de Conteúdo */
+.conteudo {
+  padding: 80px 20px;
+  /* text-align: center; */
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #1a480d;
+  color: white;
+  font-size: 1.1em;
+}
+
+/* Fade-in Animation */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slider de ALIMENTOS */
+.slider-alimentos {
+  margin-top: -50px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.slider-alimentos h2 {
+  font-size: 60px !important; /* aumentei para um tamanho bonito */
+  color: #ffffff; /* cor branca para destacar no fundo escuro */
+  text-align: center;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 40px; /* um espacinho antes do slider */
+}
+
+.swiper {
+  padding-bottom: 100px;
+}
+
+.swiper-wrapper{
+  min-height: 420px;
+  padding: 3px;
+  width: 100%;
+}
+
+.swiper-slide {
+  background-color: black;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  min-height: 380px;
+  max-width: 450px;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 15px;
+ 
+}
+
+.swiper-slide:hover {
+  transform: translateY(-10px);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.swiper-slide h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.swiper-slide p {
+  font-size: 18px;
+  color: #fefeff;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  color: #ffffff;
+}
+
+.swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 0.7;
+}
+
